@@ -1,0 +1,7 @@
+Interface for assigning workers to unassigned facility
+
+Data visualization view (resources, population, depth-height)
+
+Planning mode
+
+Depth view (per tile?)

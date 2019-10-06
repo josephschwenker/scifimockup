@@ -1,0 +1,569 @@
+@font-face {
+	font-family: ChicagoFLF;
+	src: url(ChicagoFLF.ttf);
+}
+
+html {
+	--highlight: #427b82;
+	--text: #76deee;
+	--background: #000304;
+	--button: #00131a;
+	--alert: #ff503b;
+	--standardHeight: 32px;
+	--headFont: 16px;
+	--bodyFont: 12px;
+	--boxShadow: 0 0 20px black;
+	--backgroundGradient: linear-gradient(#022d35, #010d0f);
+	--standardMargin: 5px;
+	font-family: ChicagoFLF, sans-serif;
+	font-size: var(--bodyFont);
+	user-select: none;
+	color: var(--text);
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	justify-content: center; /* center actionButton_container */
+	background-image: url(graphics/loading.png);
+	background-size: 500px 500px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#menubar {
+	background: var(--button);
+	height: var(--standardHeight);
+	display: flex;
+	box-shadow: var(--boxShadow);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.menubarButton {
+	display: flex;
+	align-items: center;
+	width: 14.28%; /* 100/7 */
+	justify-content: center;
+}
+
+.menubarButton:active {
+	background: var(--text);
+}
+
+.menubarButton:active .menubarButton_caption {
+	color: var(--button);
+}
+
+.menubarButton_icon {
+	width: 24px;
+	height: 24px;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+}
+
+#menubarButton_agricultureIcon {
+	background-image: url(icons/light/agriculture.svg);
+}
+
+.menubarButton:active #menubarButton_agricultureIcon {
+	background-image: url(icons/dark/agriculture.svg);
+}
+
+#menubarButton_industryIcon {
+	background-image: url(icons/light/industry.svg);
+}
+
+.menubarButton:active #menubarButton_industryIcon {
+	background-image: url(icons/dark/industry.svg);
+}
+
+#menubarButton_scienceIcon {
+	background-image: url(icons/light/science.svg);
+}
+
+.menubarButton:active #menubarButton_scienceIcon {
+	background-image: url(icons/dark/science.svg);
+}
+
+#menubarButton_economyIcon {
+	background-image: url(icons/light/economy.svg);
+}
+
+.menubarButton:active #menubarButton_economyIcon {
+	background-image: url(icons/dark/economy.svg);
+}
+
+#menubarButton_moraleIcon {
+	background-image: url(icons/light/morale.svg);
+}
+
+.menubarButton:active #menubarButton_moraleIcon {
+	background-image: url(icons/dark/morale.svg);
+}
+
+#menubarButton_demographicsIcon {
+	background-image: url(icons/light/demographics.svg);
+}
+
+.menubarButton:active #menubarButton_demographicsIcon {
+	background-image: url(icons/dark/demographics.svg);
+}
+
+#menubarButton_governmentIcon {
+	background-image: url(icons/light/government.svg);
+}
+
+.menubarButton:active #menubarButton_governmentIcon {
+	background-image: url(icons/dark/government.svg);
+}
+
+.menubarButton_caption {
+	color: var(--text);
+	margin-left: 8px;
+}
+
+#sidebar {
+	background: var(--backgroundGradient);
+	width: 300px;
+	position: absolute;
+	right: 0;
+	top: var(--standardHeight);
+	bottom: 0;
+	box-shadow: var(--boxShadow);
+}
+
+#sidebar_header {
+	height: var(--standardHeight);
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	position: relative;
+	background: var(--button);
+	text-transform: uppercase;
+}
+
+#sidebar_backButton {
+	background-image: url(icons/light/back.svg);
+	background-size: var(--standardHeight) var(--standardHeight);
+	width: var(--standardHeight);
+	height: var(--standardHeight);
+	background-repeat: no-repeat;
+}
+
+#sidebar_backButton:active {
+	background-color: var(--text);
+	background-image: url(icons/dark/back.svg);
+}
+
+#sidebar_categoryName {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%); /* TODO find a more elegant way to do this */
+	font-size: var(--headFont);
+}
+
+#sidebar_iconContainer {
+	height: 300px;
+	position: relative;
+	background: var(--highlight);
+}
+
+#sidebar_gridBackground {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+}
+
+@keyframes sidebar_gridCriticalStatus {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+#sidebar_gridBackground.sidebar_gridCriticalStatus {
+	background-image: radial-gradient( var(--alert), var(--background) );
+	animation: sidebar_gridCriticalStatus 2s infinite;
+}
+
+#sidebar_grid {
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	background-image: url(graphics/sidebarGrid.svg);
+	background-size: 300px 300px;
+	background-repeat: no-repeat;
+	opacity: 0.25;
+}
+
+#sidebar_icon {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	background-size: 150px 150px;
+}
+
+.sidebar_icon_hydroculture {
+	background-image: url(graphics/hydroculture.svg);
+}
+
+#sidebar_statusIcon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-image: url(graphics/alert.svg);
+	width: 50px;
+	height: 50px;
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+}
+
+#sidebar_title {
+	height: var(--standardHeight);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--headFont);
+	border-color: var(--highlight);
+	border-right: solid 1px;
+	border-bottom: solid 1px;
+	margin: 0 var(--standardMargin) var(--standardMargin) var(--standardMargin);
+	text-shadow: 0 0 1px var(--alert);
+}
+
+#sidebar_title.sidebar_titleCritical {
+	color: var(--alert);
+	border-color: var(--alert);
+}
+
+#sidebar_button {
+	background: var(--button);
+	height: var(--standardHeight);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px 20px;
+}
+
+#sidebar_button:active {
+	background: var(--highlight);
+	color: var(--button);
+}
+
+.sidebar_troughTitle {
+	height: var(--standardHeight);
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+	font-size: var(--headFont);
+	text-shadow: 0 0 5px var(--text);
+	background: linear-gradient(to right, var(--highlight), transparent);
+	margin: 0 var(--standardMargin);
+	color: var(--background);
+	border-color: var(--highlight);
+	border-style: solid;
+	border-width: 1px 0 0 1px;
+}
+
+.sidebar_trough {
+	height: var(--standardHeight);
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+	box-shadow: 0 1px var(--button) inset;
+	background: linear-gradient( var(--background), var(--button) );
+	margin: 0 var(--standardMargin) var(--standardMargin);
+	border-style: solid;
+	border-color: var(--highlight);
+	border-width: 0 0 0 1px;
+	border-bottom: solid 1px var(--background);
+}
+
+.sidebar_trough_calculationArrow {
+	background-image: url(graphics/calculationArrow.svg);
+	background-size: 225px 32px; /* 75px for total */
+	width: 225px;
+	height: 32px;
+	position: absolute;
+}
+
+.sidebar_trough_total {
+	position: absolute;
+	right: 0px;
+	width: 75px;
+	text-align: center;
+}
+
+.sidebar_troughIcon_container {
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+	z-index: 0; /* stop calculationArrow from appearing on top */
+}
+
+.sidebar_troughIcon {
+	width: 24px;
+	height: 24px;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+.sidebar_troughIconCaption {
+	padding-left: 5px;
+}
+
+#endTurnButton {
+	height: 50px;
+	background: var(--button);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	position: absolute;
+	bottom: 0;
+	right: 300px;
+	border-color: var(--highlight);
+	border-style: solid;
+	border-width: 1px 0 0 0;
+	outline: solid var(--standardMargin) var(--button);
+	text-transform: uppercase;
+	text-shadow: 0 0 5px var(--text);
+	transition: background 0.25s, outline 0.25s, color 0.25s;
+	font-size: var(--headFont);
+	z-index: -1;
+}
+
+#endTurnButton:active {
+	background: var(--text);
+	color: var(--button);
+}
+
+#actionButton_container {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	outline-color: var(--button);
+	outline-style: solid;
+	outline-width: var(--standardMargin);
+	border-color: var(--highlight);
+	border-style: solid;
+	border-width: 1px 0 0 0;
+	background: var(--button);
+}
+
+.actionButton {
+	width: 50px;
+	height: 50px;
+	background-size: var(--standardHeight) var(--standardHeight);
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+}
+
+.actionButton:active {
+	background: var(--text);
+	outline-color: var(--text);
+	background-size: var(--standardHeight) var(--standardHeight);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#actionButton_openSidebar {
+	background-image: url(icons/light/openSidebar.svg);
+}
+
+#actionButton_openSidebar:active {
+	background-image: url(icons/dark/openSidebar.svg);
+}
+
+#actionButton_haltProduction {
+	background-image: url(icons/light/haltProduction.svg);
+}
+
+#actionButton_haltProduction:active {
+	background-image: url(icons/dark/haltProduction.svg);
+}
+
+#actionButton_destroy {
+	background-image: url(icons/light/destroy.svg);
+}
+
+#actionButton_destroy:active {
+	background-image: url(icons/dark/destroy.svg);
+}
+
+#minimap_container {
+	width: 200px;
+	height: 200px;
+	background: var(--background);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+#minimap_dropdown {
+	position: relative;
+	top: var(--standardMargin);
+	right: var(--standardMargin);
+	left: 0;
+	height: var(--standardHeight);
+	background: var(--button);
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding-left: var(--standardMargin);
+	background-image: url(graphics/dropdown_upDown.svg);
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position: calc(100% - 10px) 50%;
+}
+
+#minimap {
+	position: absolute;
+	background-color: var(--highlight);
+	background-image: url(graphics/sidebarGrid.svg);
+	background-size: 50px 50px;
+	left: 0;
+	right: var(--standardMargin);
+	top: 0;
+	bottom: 0;
+}
+
+#notificationPane {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.notification {
+	background: var(--background);
+	height: 100px;
+	border-color: var(--highlight);
+	border-style: solid;
+	border-width: 1px 0;
+	outline-color: var(--background);
+	outline-style: solid;
+	outline-width: var(--standardMargin);
+	display: flex;
+}
+
+.notification_advisor {
+	height: 100px;
+	width: 80px;
+	background-size: 80px 100px;
+}
+
+.notification_advisor_science {
+	background-image: url(graphics/scienceOfficer.png);
+}
+
+.notification_content {
+	display: flex;
+	flex-direction: column;
+	width: 0;
+	padding: 0;
+	opacity: 0;
+	transition: width 0.125s ease 0.125s, opacity 0.1s, padding 0.1s step-end;
+	visibility: hidden;
+}
+
+.notification:hover .notification_content {
+	width: 200px;
+	padding: var(--standardMargin) 0 var(--standardMargin) var(--standardMargin);
+	opacity: 1;
+	transition: width 0.125s, opacity 0.1s ease 0.125s;
+	visibility: visible;
+}
+
+@keyframes minimizeNotification {
+	25% {
+		opacity: 1;
+	}
+	
+	100% {
+		width: 0;
+		opacity: 0;
+		padding: 0;
+	}
+}
+
+@keyframes maximizeNotification {
+	0% {
+		opacity: 
+	}
+	
+	25% {
+		
+	}
+	
+	100% {
+		
+	}
+}
+
+.notification_message {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+}
+
+.notification_buttonContainer {
+	display: flex;
+}
+
+.button {
+	border: solid 1px var(--highlight);
+	background: var(--button);
+	height: var(--standardHeight);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1 1 auto;
+}
+
+.button:not(:last-child) {
+	margin-right: var(--standardMargin);
+}
+
+.button:active {
+	background: var(--text);
+	color: var(--button);
+}
+
+.worker_nuclearEngineer {
+	background-image: url(graphics/nuclearEngineer.svg);
+}
+
+.resource_water {
+	background-image: url(graphics/water.svg);
+}
+
+.resource_buildingMaterials {
+	background-image: url(graphics/buildingMaterials.svg);
+}
+
+.resource_food {
+	background-image: url(graphics/food.svg);
+}
+
+.government_psychosocialFascism {
+	background-image: url(graphics/psychosocialFascism.svg);
+}
+
+.action_haltProduction {
+	background-image: url(graphics/productionHalted.svg);
+}
