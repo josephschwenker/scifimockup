@@ -5,12 +5,15 @@
 
 html {
 	--highlight: #427b82;
+	--highlightTransparent: #427b82bf;
 	--text: #76deee;
 	--background: #000304;
+	--backgroundTransparent: #000304cc;
 	--button: #00131a;
+	--buttonTransparent: #00131abf;
 	--alert: #ff503b;
 	--standardHeight: 32px;
-	--headFont: 16px;
+	--headFont: 14px;
 	--bodyFont: 12px;
 	--boxShadow: 0 0 20px black;
 	--backgroundGradient: linear-gradient(#022d35, #010d0f);
@@ -26,14 +29,12 @@ body {
 	margin: 0;
 	display: flex;
 	justify-content: center; /* center actionButton_container */
-	background-image: url(graphics/loading.png);
-	background-size: 500px 500px;
+	background-image: url(graphics/background.jpg);
 	background-position: center center;
 	background-repeat: no-repeat;
 }
 
 #menubar {
-	background: var(--button);
 	height: var(--standardHeight);
 	display: flex;
 	box-shadow: var(--boxShadow);
@@ -44,10 +45,20 @@ body {
 }
 
 .menubarButton {
+	background: var(--button);
 	display: flex;
 	align-items: center;
 	width: 14.28%; /* 100/7 */
 	justify-content: center;
+	margin: 0 0.5px;
+}
+
+.menubarButton:first-child {
+	margin-left: 0;
+}
+
+.menubarButton:last-child {
+	margin-right: 0;
 }
 
 .menubarButton:active {
@@ -59,9 +70,9 @@ body {
 }
 
 .menubarButton_icon {
-	width: 24px;
-	height: 24px;
-	background-size: 24px 24px;
+	width: 16px;
+	height: 16px;
+	background-size: 16px 16px;
 	background-repeat: no-repeat;
 }
 
@@ -127,13 +138,17 @@ body {
 }
 
 #sidebar {
-	background: var(--backgroundGradient);
 	width: 300px;
 	position: absolute;
 	right: 0;
 	top: var(--standardHeight);
-	bottom: 0;
+	margin-top: 1px;
 	box-shadow: var(--boxShadow);
+}
+
+#sidebar > * {
+	margin-bottom: 1px;
+	backdrop-filter: blur(25px);
 }
 
 #sidebar_header {
@@ -236,11 +251,12 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-size: var(--headFont);
-	border-color: var(--highlight);
-	border-right: solid 1px;
-	border-bottom: solid 1px;
-	margin: 0 var(--standardMargin) var(--standardMargin) var(--standardMargin);
+	/* border-color: var(--highlight); */
+	/* border-right: solid 1px; */
+	/* border-bottom: solid 1px; */
+	/* margin: 0; */
 	text-shadow: 0 0 1px var(--alert);
+	background: var(--backgroundTransparent);
 }
 
 #sidebar_title.sidebar_titleCritical {
@@ -263,32 +279,36 @@ body {
 }
 
 .sidebar_troughTitle {
-	height: var(--standardHeight);
+	height: calc(0.75*var(--standardHeight));
 	display: flex;
 	align-items: center;
-	padding: 0 10px;
-	font-size: var(--headFont);
-	text-shadow: 0 0 5px var(--text);
-	background: linear-gradient(to right, var(--highlight), transparent);
-	margin: 0 var(--standardMargin);
-	color: var(--background);
-	border-color: var(--highlight);
-	border-style: solid;
-	border-width: 1px 0 0 1px;
+	padding: 0 15px;
+	font-size: var(--bodyFont);
+	text-shadow: 0 0 5px var(--highlight);
+	background: var(--backgroundTransparent);
+	margin: 0 !important;
+	color: var(--text);
+	/* border-color: var(--highlight); */
+	/* border-style: solid; */
+	/* border-width: 1px 0 0 1px; */
 }
 
 .sidebar_trough {
-	height: var(--standardHeight);
+	height: calc(1.5*var(--standardHeight));
 	display: flex;
 	align-items: center;
 	padding: 0 20px;
 	box-shadow: 0 1px var(--button) inset;
-	background: linear-gradient( var(--background), var(--button) );
-	margin: 0 var(--standardMargin) var(--standardMargin);
+	background: var(--buttonTransparent);
+	margin: 0;
 	border-style: solid;
 	border-color: var(--highlight);
-	border-width: 0 0 0 1px;
+	border-width: 1px 0;
 	border-bottom: solid 1px var(--background);
+}
+
+.sidebar_trough:last-child {
+	margin-bottom: 0 !important;
 }
 
 .sidebar_trough_calculationArrow {
@@ -450,15 +470,15 @@ body {
 }
 
 .notification {
-	background: var(--background);
 	height: 100px;
-	border-color: var(--highlight);
-	border-style: solid;
-	border-width: 1px 0;
-	outline-color: var(--background);
-	outline-style: solid;
-	outline-width: var(--standardMargin);
+	/* border-color: var(--highlight); */
+	/* border-style: solid; */
+	/* border-width: 1px 0; */
+	/* outline-color: var(--background); */
+	/* outline-style: solid; */
+	/* outline-width: var(--standardMargin); */
 	display: flex;
+	box-shadow: var(--boxShadow);
 }
 
 .notification_advisor {
@@ -472,6 +492,7 @@ body {
 }
 
 .notification_content {
+	margin-left: 1px;
 	display: flex;
 	flex-direction: column;
 	width: 0;
@@ -483,7 +504,7 @@ body {
 
 .notification:hover .notification_content {
 	width: 200px;
-	padding: var(--standardMargin) 0 var(--standardMargin) var(--standardMargin);
+	/* padding: var(--standardMargin) 0 var(--standardMargin) var(--standardMargin); */
 	opacity: 1;
 	transition: width 0.125s, opacity 0.1s ease 0.125s;
 	visibility: visible;
@@ -503,7 +524,7 @@ body {
 
 @keyframes maximizeNotification {
 	0% {
-		opacity: 
+		
 	}
 	
 	25% {
@@ -516,27 +537,33 @@ body {
 }
 
 .notification_message {
+	background: var(--backgroundTransparent);
+	backdrop-filter: blur(25px);
 	flex: 1 1 auto;
 	display: flex;
 	align-items: center;
+	padding: var(--standardMargin);
 }
 
 .notification_buttonContainer {
+	margin-top: 1px;
 	display: flex;
 }
 
 .button {
 	border: solid 1px var(--highlight);
-	background: var(--button);
+	background: var(--buttonTransparent);
+	backdrop-filter: blur(25px);
 	height: var(--standardHeight);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex: 1 1 auto;
-}
-
-.button:not(:last-child) {
-	margin-right: var(--standardMargin);
+	position: relative;
+	outline-color: var(--background);
+	outline-style: solid;
+	outline-width: 1px;
+	margin: 1px;
 }
 
 .button:active {
