@@ -485,6 +485,7 @@ body {
 	height: 100px;
 	width: 80px;
 	background-size: 80px 100px;
+	margin-right: 1px;
 }
 
 .notification_advisor_science {
@@ -492,48 +493,19 @@ body {
 }
 
 .notification_content {
-	margin-left: 1px;
 	display: flex;
 	flex-direction: column;
 	width: 0;
-	padding: 0;
-	opacity: 0;
-	transition: width 0.125s ease 0.125s, opacity 0.1s, padding 0.1s step-end;
-	visibility: hidden;
+	overflow: hidden;
+	color: transparent;
+	transition: width 0.125s ease 0.125s;
 }
 
 .notification:hover .notification_content {
 	width: 200px;
-	/* padding: var(--standardMargin) 0 var(--standardMargin) var(--standardMargin); */
-	opacity: 1;
-	transition: width 0.125s, opacity 0.1s ease 0.125s;
+	color: var(--text);
+	transition: width 0.25s, color 0.1s ease 0.125s;
 	visibility: visible;
-}
-
-@keyframes minimizeNotification {
-	25% {
-		opacity: 1;
-	}
-	
-	100% {
-		width: 0;
-		opacity: 0;
-		padding: 0;
-	}
-}
-
-@keyframes maximizeNotification {
-	0% {
-		
-	}
-	
-	25% {
-		
-	}
-	
-	100% {
-		
-	}
 }
 
 .notification_message {
