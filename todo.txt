@@ -1,4 +1,5 @@
 Remove transforms with translateX/Y(-50%)
+Introduce variables for transition times: enter (0.25s), exit (0.125s)
 
 CRT scanlines on advisor, facility display in sidebar
 Typewriter effect on text in notifications

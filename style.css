@@ -570,17 +570,18 @@ body {
 	left: 0;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
-	justify-content: center;
+	height: 50%;
+	justify-content: flex-end;
 	align-items: flex-start;
 }
 
 .notification {
 	position: relative;
-	height: 100px;
+	overflow: hidden;
+	height: 0;
 	left: -80px;
 	opacity: 0;
-	margin-bottom: var(--standardMargin);
+	margin: 0;
 	/* border-color: var(--accent); */
 	/* border-style: solid; */
 	/* border-width: 1px 0; */
@@ -589,12 +590,18 @@ body {
 	/* outline-width: var(--standardMargin); */
 	display: flex;
 	box-shadow: var(--boxShadow);
-	transition: width 0.5s, opacity 0.5s, left 0.5s;
+	transition: left 0.25s, opacity 0.25s, margin 0.25s 0.25s, height 0.25s 0.25s;
 }
 
 .notification.open {
-	left: 0;
+	left: -50px;
+	margin-bottom: var(--standardMargin);
+	height: 100px;
 	opacity: 1;
+}
+
+.notification.open:hover {
+	left: 0;
 }
 
 .notification_advisor {

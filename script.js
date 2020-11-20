@@ -12,7 +12,7 @@ function dismissNotification(e) {
 	// find the notification
 	let notification
 	for (n of e.path) {
-		console.log(n)
+		// console.log(n)
 		if ( n.classList.contains("notification") ) {
 			notification = n
 			break
@@ -21,7 +21,11 @@ function dismissNotification(e) {
 	// hide the notification
 	notification.classList.remove("open")
 	// delete the notification
-	
+	let transitionTime = 500
+	let timeout = setTimeout(
+		() => n.parentElement.removeChild(n),
+		transitionTime
+	)
 }
 let dismissButtons = document.getElementsByClassName("notificiation_openButton")
 for (e of dismissButtons) {
