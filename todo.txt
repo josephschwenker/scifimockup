@@ -1,8 +1,10 @@
-Convert icons to grayscale
 Animation for closing sidebar
+Convert icons to grayscale
 
-Typewriter effect on text in notifications
 CRT scanlines on advisor, facility display in sidebar
+Typewriter effect on text in notifications
+Add tooltips
+Fix box shadow overlap on sidebar
 
 Confirm dialog animation: pseudo element dims background, confirm dialog scales up in front
 Interface for assigning workers to unassigned facility

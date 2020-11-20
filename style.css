@@ -28,6 +28,7 @@ html {
 }
 
 body {
+	overflow: hidden;
 	margin: 0;
 	display: flex;
 	justify-content: center; 
@@ -183,6 +184,7 @@ body {
 	top: var(--standardHeight);
 	margin-top: 1px;
 	box-shadow: var(--boxShadow);
+	transition: right 0.25s;
 }
 
 #sidebar > * {
@@ -236,7 +238,7 @@ body {
 #sidebar_iconContainer {
 	height: 300px;
 	position: relative;
-	background: var(--accent);
+	/* background: var(--accent); */
 }
 
 #sidebar_gridBackground {
@@ -390,6 +392,7 @@ body {
 	align-items: center;
 	margin-right: 10px;
 	z-index: 0; /* stop calculationArrow from appearing on top */
+	/* filter: grayscale(1); */
 }
 
 .sidebar_troughIcon {
