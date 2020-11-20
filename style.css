@@ -30,11 +30,11 @@ html {
 body {
 	margin: 0;
 	display: flex;
-	justify-content: center; /* center actionButton_container */
-	/* background-image: url(graphics/background.jpg); */
+	justify-content: center; 
+	background-image: url(graphics/background.jpg);
 	background-position: center center;
 	background-repeat: no-repeat;
-	background: lightblue;
+	/* background-color: lightblue; */
 }
 
 #menubar {
