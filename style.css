@@ -245,6 +245,9 @@ body {
 	height: 300px;
 	position: relative;
 	backdrop-filter: blur(25px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	/* background: var(--accent); */
 }
 
@@ -286,9 +289,6 @@ body {
 	width: 150px;
 	height: 150px;
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translateX(-50%) translateY(-50%);
 	background-position: center center;
 	background-size: contain;
 	background-repeat: no-repeat;
