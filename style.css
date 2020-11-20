@@ -384,6 +384,29 @@ body {
 	}
 }
 
+@keyframes explode {
+	/* initial state */
+	0% {
+		background: initial;
+		font-size: initial;
+	}
+	/* background changes */
+	33% {
+		background: var(--highlight);
+	}
+	/* text or image blows off the screen */
+	66% {
+		font-size: 1000% !important;
+		background-size: calc( 10*var(--standardHeight) ) calc( 10*var(--standardHeight) );
+	}
+	/* new image fades in */
+	100% {
+		background-size: calc( 0.75*var(--standardHeight) ) calc( 0.75*var(--standardHeight) );
+		font-size: initial;
+		color: var(--background);
+	}
+}
+
 .actionButton {
 	display: flex;
 	justify-content: center;
@@ -391,6 +414,7 @@ body {
 	width: 50px;
 	height: 50px;
 	overflow: hidden;
+	font-size: var(--bodyFont);
 	/* outline-color: var(--button); */
 	/* outline-style: solid; */
 	/* outline-width: 1px; */
@@ -401,19 +425,30 @@ body {
 	position: relative;
 	margin-right: var(--standardMargin);
 	margin-bottom: var(--standardMargin);
-	transition: background 0.25s, color 0.25s, border 0.25s;
+	transition: background 0.5s, color 0.25s, font-size 0.25s, color 0.125s;
+}
+
+.actionButton:active {
+	background: var(--text);
+	color: var(--button);
+	font-size: 1000% !important;
+	color: transparent;
+	white-space: nowrap;
+	/* text-shadow: 0 0 5px var(--background); */
+	/* border-top: solid 1px var(--background); */
 }
 
 .actionButton::before {
 	position: absolute;
+	z-index: -1;
 	content: "";
 	width: 0;
 	height: 0;
-	background: white;
+	background: var(--text);
 	background-size: 0 0;
 	background-position: center center;
 	background-repeat: no-repeat;
-	opacity: 5%;
+	opacity: 100%;
 	border-radius: 999px;
 	transition: width, height;
 	transition-duration: 0.125s
@@ -422,14 +457,7 @@ body {
 .actionButton:active::before {
 	width: 200px;
 	height: 200px;
-	transition-duration: 0.5s;
-}
-
-.actionButton:active {
-	/* background: linear-gradient( var(--text), var(--highlight) ); */
-	color: var(--button);
-	/* text-shadow: 0 0 5px var(--background); */
-	/* border-top: solid 1px var(--background); */
+	transition-duration: 1s;
 }
 
 .actionButton_backgroundImage {
@@ -438,7 +466,14 @@ body {
 	background-size: calc( 0.75*var(--standardHeight) ) calc( 0.75*var(--standardHeight) );
 	background-repeat: no-repeat;
 	background-position: center;
+	opacity: 1;
+	transition: background-size 0.25s, opacity 0.125s;
 }
+
+.actionButton:active .actionButton_backgroundImage {
+	background-size: calc( 10*var(--standardHeight) ) calc( 10*var(--standardHeight) );
+	opacity: 0;
+} 
 
 #actionButton_openSidebar .actionButton_backgroundImage {
 	background-image: url(icons/light/openSidebar.svg);

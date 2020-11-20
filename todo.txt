@@ -1,5 +1,5 @@
 Rehash action bar and end turn
-Add Material UI circle ripple to buttons on press
+Create new class for all main buttons, apply ripple effect
 Animation: background image on button explodes and fades out when release button
 CRT scanlines on advisor, facility display in sidebar
 Rehash minimap
