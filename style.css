@@ -10,8 +10,8 @@ html {
 	--text: #76deee;
 	--background: #000304;
 	--backgroundTransparent: #000304cc;
-	--button: #00131a;
-	--buttonTransparent: rgb(0 19 26 / 0.25);
+	--button: rgb(4 40 53);
+	--buttonTransparent: rgb(4 40 53 / 49%);
 	--alert: #ff503b;
 	--standardHeight: 32px;
 	--headFont: 14px;
@@ -31,9 +31,10 @@ body {
 	margin: 0;
 	display: flex;
 	justify-content: center; /* center actionButton_container */
-	background-image: url(graphics/background.jpg);
+	/* background-image: url(graphics/background.jpg); */
 	background-position: center center;
 	background-repeat: no-repeat;
+	background: lightblue;
 }
 
 #menubar {
@@ -48,6 +49,7 @@ body {
 }
 
 .button {
+	background: var(--buttonTransparent);
 	transition: background 0.5s, color 0.25s, font-size 0.25s, color 0.125s;
 	display: flex;
 	justify-content: center;
@@ -450,6 +452,7 @@ body {
 }
 
 .actionButton {
+	background: var(--backgroundTransparent);
 	width: 50px;
 	height: 50px;
 	position: relative;
@@ -568,7 +571,6 @@ body {
 	height: 100px;
 	width: 80px;
 	background-size: 80px 100px;
-	margin-right: 1px;
 }
 
 .notification_advisor_science {
@@ -581,10 +583,12 @@ body {
 	width: 0;
 	overflow: hidden;
 	color: transparent;
-	transition: width 0.125s ease 0.125s;
+	margin-left: 0;
+	transition: width 0.125s, margin 0.125s;
 }
 
 .notification:hover .notification_content {
+	margin-left: 1px;
 	width: 200px;
 	color: var(--text);
 	transition: width 0.25s, color 0.1s ease 0.125s;

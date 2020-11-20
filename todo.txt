@@ -1,4 +1,3 @@
-Rehash minimap
 Convert icons to grayscale
 Animation for closing sidebar
 
