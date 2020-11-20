@@ -4,8 +4,9 @@
 }
 
 html {
-	--highlight: #427b82;
-	--highlightTransparent: #427b82bf;
+	--accent: #427b82;
+	--accentTransparent: #427b82bf;
+	--highlight: #76deee;
 	--text: #76deee;
 	--background: #000304;
 	--backgroundTransparent: #000304cc;
@@ -56,7 +57,7 @@ body {
 }
 
 .button:active {
-	background: var(--text);
+	background: var(--highlight);
 	color: var(--button);
 }
 
@@ -66,7 +67,7 @@ body {
 	content: "";
 	width: 0;
 	height: 0;
-	background: var(--text);
+	background-color: var(--highlight);
 	background-size: 0 0;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -201,15 +202,23 @@ body {
 }
 
 #sidebar_backButton {
-	background-image: url(icons/light/back.svg);
-	background-size: var(--standardHeight) var(--standardHeight);
 	width: var(--standardHeight);
-	background-repeat: no-repeat;
 	margin-right: 1px;
 }
 
 #sidebar_backButton:active {
-	background-color: var(--text);
+	background-color: var(--highlight);
+}
+
+#sidebar_backButton_backgroundImage {
+	width: 100%;
+	height: 100%;
+	background-image: url(icons/light/back.svg);
+	background-size: var(--standardHeight) var(--standardHeight);
+	background-repeat: no-repeat;
+}
+
+#sidebar_backButton:active #sidebar_backButton_backgroundImage {
 	background-image: url(icons/dark/back.svg);
 }
 
@@ -224,7 +233,7 @@ body {
 #sidebar_iconContainer {
 	height: 300px;
 	position: relative;
-	background: var(--highlight);
+	background: var(--accent);
 }
 
 #sidebar_gridBackground {
@@ -293,7 +302,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-size: var(--headFont);
-	border-color: var(--highlight);
+	border-color: var(--accent);
 	/* border-left: solid 1px; */
 	border-bottom: solid 1px;
 	margin: 0;
@@ -316,7 +325,7 @@ body {
 }
 
 #sidebar_button:active {
-	background: var(--highlight);
+	background: var(--accent);
 	color: var(--button);
 }
 
@@ -326,12 +335,12 @@ body {
 	align-items: center;
 	padding: 0 15px;
 	font-size: var(--bodyFont);
-	text-shadow: 0 0 5px var(--highlight);
+	text-shadow: 0 0 5px var(--accent);
 	background: var(--backgroundTransparent);
 	margin: 0 !important;
 	color: var(--text);
 	/* border-left: solid 1px; */
-	/* border-color: var(--highlight); */
+	/* border-color: var(--accent); */
 	/* border-style: solid; */
 	/* border-width: 1px 0 0 1px; */
 }
@@ -341,11 +350,11 @@ body {
 	display: flex;
 	align-items: center;
 	padding: 0 20px;
-	box-shadow: 0 1px var(--highlight) inset;
+	box-shadow: 0 1px var(--accent) inset;
 	background: var(--buttonTransparent);
 	margin: 0;
 	/* border-style: solid; */
-	/* border-color: var(--highlight); */
+	/* border-color: var(--accent); */
 	/* border-width: 1px 0; */
 	border-bottom: solid 1px var(--background);
 }
@@ -398,7 +407,6 @@ body {
 	/* outline: solid 1px var(--button); */
 	/* text-transform: uppercase; */
 	font-size: var(--headFont);
-	z-index: -1;
 	box-shadow: var(--box-shadow);
 }
 
@@ -425,7 +433,7 @@ body {
 	}
 	/* background changes */
 	33% {
-		background: var(--highlight);
+		background: var(--accent);
 	}
 	/* text or image blows off the screen */
 	66% {
@@ -462,7 +470,7 @@ body {
 	background-size: calc( 0.75*var(--standardHeight) ) calc( 0.75*var(--standardHeight) );
 	background-repeat: no-repeat;
 	background-position: center;
-	opacity: 1;
+	/* opacity: 1; */
 	/* transition: background-size 0.25s, opacity 0.125s; */
 }
 
@@ -498,19 +506,22 @@ body {
 #minimap_container {
 	width: 200px;
 	height: 200px;
-	background: var(--background);
 	position: absolute;
 	left: 0;
 	bottom: 0;
+	margin: 0 0 var(--standardMargin) var(--standardMargin);
 }
 
 #minimap_dropdown {
 	position: relative;
-	top: var(--standardMargin);
-	right: var(--standardMargin);
+	z-index: 1;
+	top: 0;
 	left: 0;
+	right: 0;
 	height: var(--standardHeight);
-	background: var(--button);
+	background: var(--backgroundTransparent);
+	border-bottom: solid 1px var(--accent);
+	backdrop-filter: blur(25px);
 	display: flex;
 	justify-content: left;
 	align-items: center;
@@ -523,13 +534,14 @@ body {
 
 #minimap {
 	position: absolute;
-	background-color: var(--highlight);
+	background-color: var(--buttonTransparent);
+	backdrop-filter: blur(25px);
 	background-image: url(graphics/sidebarGrid.svg);
 	background-size: 50px 50px;
 	left: 0;
-	right: var(--standardMargin);
 	top: 0;
 	bottom: 0;
+	right: 0;
 }
 
 #notificationPane {
@@ -541,7 +553,7 @@ body {
 
 .notification {
 	height: 100px;
-	/* border-color: var(--highlight); */
+	/* border-color: var(--accent); */
 	/* border-style: solid; */
 	/* border-width: 1px 0; */
 	/* outline-color: var(--background); */
@@ -593,7 +605,7 @@ body {
 }
 
 .dialogButton {
-	/* border: solid 1px var(--highlight); */
+	/* border: solid 1px var(--accent); */
 	background: var(--buttonTransparent);
 	backdrop-filter: blur(25px);
 	height: var(--standardHeight);
