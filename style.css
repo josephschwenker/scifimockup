@@ -598,10 +598,12 @@ body {
 	margin-bottom: var(--standardMargin);
 	height: 100px;
 	opacity: 1;
+	transition: left 0.25s;
 }
 
 .notification.open:hover {
 	left: 0;
+	transition: left 0.25s 0s;
 }
 
 .notification_advisor {
@@ -621,14 +623,14 @@ body {
 	overflow: hidden;
 	color: transparent;
 	margin-left: 0;
-	transition: width 0.125s, margin 0.125s;
+	transition: width 0.25s, color 0s, margin 0.25s 5s;
 }
 
 .notification:hover .notification_content {
 	margin-left: 1px;
 	width: 200px;
 	color: var(--text);
-	transition: width 0.25s, color 0.1s ease 0.125s;
+	transition: width 0.25s, color 0s 0.25s;
 	visibility: visible;
 }
 

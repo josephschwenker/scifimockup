@@ -1,5 +1,7 @@
+Keep notifications open for 1s after mouseout
 Remove transforms with translateX/Y(-50%)
 Introduce variables for transition times: enter (0.25s), exit (0.125s)
+Introduce global transition scale factor variable
 
 CRT scanlines on advisor, facility display in sidebar
 Typewriter effect on text in notifications
