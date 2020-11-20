@@ -45,6 +45,43 @@ body {
 	right: 0;
 }
 
+.button {
+	transition: background 0.5s, color 0.25s, font-size 0.25s, color 0.125s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	font-size: var(--bodyFont);
+	backdrop-filter: blur(25px);
+}
+
+.button:active {
+	background: var(--text);
+	color: var(--button);
+}
+
+.button::before {
+	position: absolute;
+	z-index: -1;
+	content: "";
+	width: 0;
+	height: 0;
+	background: var(--text);
+	background-size: 0 0;
+	background-position: center center;
+	background-repeat: no-repeat;
+	opacity: 100%;
+	border-radius: 999px;
+	transition: width, height;
+	transition-duration: 0.125s
+}
+
+.button:active::before {
+	width: 200px;
+	height: 200px;
+	transition-duration: 1s;
+}
+
 .menubarButton {
 	background: var(--backgroundTransparent);
 	backdrop-filter: blur(25px);
@@ -61,10 +98,6 @@ body {
 
 .menubarButton:last-child {
 	margin-right: 0;
-}
-
-.menubarButton:active {
-	background: var(--text);
 }
 
 .menubarButton:active .menubarButton_caption {
@@ -308,12 +341,12 @@ body {
 	display: flex;
 	align-items: center;
 	padding: 0 20px;
-	box-shadow: 0 1px var(--button) inset;
+	box-shadow: 0 1px var(--highlight) inset;
 	background: var(--buttonTransparent);
 	margin: 0;
-	border-style: solid;
-	border-color: var(--highlight);
-	border-width: 1px 0;
+	/* border-style: solid; */
+	/* border-color: var(--highlight); */
+	/* border-width: 1px 0; */
 	border-bottom: solid 1px var(--background);
 }
 
@@ -408,56 +441,19 @@ body {
 }
 
 .actionButton {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	width: 50px;
 	height: 50px;
-	overflow: hidden;
-	font-size: var(--bodyFont);
-	/* outline-color: var(--button); */
-	/* outline-style: solid; */
-	/* outline-width: 1px; */
-	/* border-color: var(--highlight); */
-	/* border-style: solid; */
-	/* border-width: 1px 0 0 0; */
-	backdrop-filter: blur(25px);
 	position: relative;
 	margin-right: var(--standardMargin);
 	margin-bottom: var(--standardMargin);
-	transition: background 0.5s, color 0.25s, font-size 0.25s, color 0.125s;
 }
 
 .actionButton:active {
-	background: var(--text);
-	color: var(--button);
-	font-size: 1000% !important;
-	color: transparent;
-	white-space: nowrap;
+	/* font-size: 1000% !important; */
+	/* color: transparent; */
+	/* white-space: nowrap; */
 	/* text-shadow: 0 0 5px var(--background); */
 	/* border-top: solid 1px var(--background); */
-}
-
-.actionButton::before {
-	position: absolute;
-	z-index: -1;
-	content: "";
-	width: 0;
-	height: 0;
-	background: var(--text);
-	background-size: 0 0;
-	background-position: center center;
-	background-repeat: no-repeat;
-	opacity: 100%;
-	border-radius: 999px;
-	transition: width, height;
-	transition-duration: 0.125s
-}
-
-.actionButton:active::before {
-	width: 200px;
-	height: 200px;
-	transition-duration: 1s;
 }
 
 .actionButton_backgroundImage {
@@ -467,12 +463,12 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	opacity: 1;
-	transition: background-size 0.25s, opacity 0.125s;
+	/* transition: background-size 0.25s, opacity 0.125s; */
 }
 
 .actionButton:active .actionButton_backgroundImage {
-	background-size: calc( 10*var(--standardHeight) ) calc( 10*var(--standardHeight) );
-	opacity: 0;
+	/* background-size: calc( 10*var(--standardHeight) ) calc( 10*var(--standardHeight) ); */
+	/* opacity: 0; */
 } 
 
 #actionButton_openSidebar .actionButton_backgroundImage {
@@ -596,8 +592,8 @@ body {
 	display: flex;
 }
 
-.button {
-	border: solid 1px var(--highlight);
+.dialogButton {
+	/* border: solid 1px var(--highlight); */
 	background: var(--buttonTransparent);
 	backdrop-filter: blur(25px);
 	height: var(--standardHeight);
@@ -606,15 +602,13 @@ body {
 	align-items: center;
 	flex: 1 1 auto;
 	position: relative;
-	outline-color: var(--background);
-	outline-style: solid;
-	outline-width: 1px;
-	margin: 1px;
+	/* outline-color: var(--background); */
+	/* outline-style: solid; */
+	/* outline-width: 1px; */
 }
 
-.button:active {
-	background: var(--text);
-	color: var(--button);
+.dialogButton:not(:last-child) {
+	margin-right: 1px;
 }
 
 .worker_nuclearEngineer {

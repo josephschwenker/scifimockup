@@ -8,31 +8,31 @@
 	<body>
 		<!-- MENUBAR -->
 		<div id="menubar">
-			<span class="menubarButton" id="menubarButton_agriculture">
+			<span class="button menubarButton" id="menubarButton_agriculture">
 				<span class="menubarButton_icon" id="menubarButton_agricultureIcon"></span>
 				<span class="menubarButton_caption">92 (+2)</span>
 			</span>
-			<span class="menubarButton" id="menubarButton_industry">
+			<span class="button menubarButton" id="menubarButton_industry">
 				<span class="menubarButton_icon" id="menubarButton_industryIcon"></span>
 				<span class="menubarButton_caption">0 free</span>
 			</span>
-			<span class="menubarButton" id="menubarButton_science">
+			<span class="button menubarButton" id="menubarButton_science">
 				<span class="menubarButton_icon" id="menubarButton_scienceIcon"></span>
 				<span class="menubarButton_caption">3 turns</span>
 			</span>
-			<span class="menubarButton" id="menubarButton_economy">
+			<span class="button menubarButton" id="menubarButton_economy">
 				<span class="menubarButton_icon" id="menubarButton_economyIcon"></span>
 				<span class="menubarButton_caption">16 (+10)</span>
 			</span>
-			<span class="menubarButton" id="menubarButton_morale">
+			<span class="button menubarButton" id="menubarButton_morale">
 				<span class="menubarButton_icon" id="menubarButton_moraleIcon"></span>
 				<span class="menubarButton_caption">74%</span>
 			</span>
-			<span class="menubarButton" id="menubarButton_demographics">
+			<span class="button menubarButton" id="menubarButton_demographics">
 				<span class="menubarButton_icon" id="menubarButton_demographicsIcon"></span>
 				<span class="menubarButton_caption">160 (+1)</span>
 			</span>
-			<span class="menubarButton" id="menubarButton_government">
+			<span class="button menubarButton" id="menubarButton_government">
 				<!-- dynamically populated -->
 				<span class="menubarButton_icon" id="menubarButton_governmentIcon"></span>
 				<span class="menubarButton_caption">Government</span>
@@ -41,7 +41,7 @@
 		<!-- SIDEBAR -->
 		<div id="sidebar">
 			<div id="sidebar_header">
-				<span id="sidebar_backButton"></span>
+				<span id="sidebar_backButton" class="button"></span>
 				<span id="sidebar_categoryName">Facilities</span>
 			</div>
 			<div id="sidebar_title" class="sidebar_titleCritical">
@@ -116,19 +116,19 @@
 				</span>
 			</div>
 		</div>
-		<!-- END TURN BUTTON -->
-		<div id="endTurnButton" class="actionButton">
+		<!-- END TURN dialogButton -->
+		<div id="endTurnButton" class="button actionButton">
 			End Turn
 		</div>
 		<!-- ACTION BUTTONS -->
 		<div id="actionButton_container">
-			<div id="actionButton_openSidebar" class="actionButton">
+			<div id="actionButton_openSidebar" class="button actionButton">
 				<div class="actionButton_backgroundImage"></div>
 			</div>
-			<div id="actionButton_haltProduction" class="actionButton">
+			<div id="actionButton_haltProduction" class="button actionButton">
 				<div class="actionButton_backgroundImage"></div>
 			</div>
-			<div id="actionButton_destroy" class="actionButton">
+			<div id="actionButton_destroy" class="button actionButton">
 				<div class="actionButton_backgroundImage"></div>
 			</div>
 		</div>
@@ -146,8 +146,8 @@
 				<div class="notification_content">
 					<div class="notification_message">Scientific output has stagnated.</div>
 					<div class="notification_buttonContainer">
-						<div class="button">Dismiss</div>
-						<div class="button">Open Panel</div>
+						<div class="button dialogButton">Dismiss</div>
+						<div class="button dialogButton">Open Panel</div>
 					</div>
 				</div>
 			</div>
