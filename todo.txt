@@ -1,9 +1,12 @@
 Rehash action bar and end turn
+Add Material UI circle ripple to buttons on press
+Animation: background image on button explodes and fades out when release button
 CRT scanlines on advisor, facility display in sidebar
 Rehash minimap
 Typewriter effect on text in notifications
 Convert icons to grayscale
 Animation for closing sidebar
+Confirm dialog animation: pseudo element dims background, confirm dialog scales up in front
 Interface for assigning workers to unassigned facility
 Data visualization view (resources, population, depth-height)
 Planning mode
