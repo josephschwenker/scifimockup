@@ -10,7 +10,7 @@ html {
 	--background: #000304;
 	--backgroundTransparent: #000304cc;
 	--button: #00131a;
-	--buttonTransparent: #00131abf;
+	--buttonTransparent: rgb(0 19 26 / 0.25);
 	--alert: #ff503b;
 	--standardHeight: 32px;
 	--headFont: 14px;
@@ -45,7 +45,8 @@ body {
 }
 
 .menubarButton {
-	background: var(--button);
+	background: var(--backgroundTransparent);
+	backdrop-filter: blur(25px);
 	display: flex;
 	align-items: center;
 	width: 14.28%; /* 100/7 */
@@ -157,16 +158,20 @@ body {
 	align-items: center;
 	justify-content: left;
 	position: relative;
-	background: var(--button);
 	text-transform: uppercase;
+}
+
+#sidebar_header > * {
+	background-color: var(--backgroundTransparent);
+	height: 100%;
 }
 
 #sidebar_backButton {
 	background-image: url(icons/light/back.svg);
 	background-size: var(--standardHeight) var(--standardHeight);
 	width: var(--standardHeight);
-	height: var(--standardHeight);
 	background-repeat: no-repeat;
+	margin-right: 1px;
 }
 
 #sidebar_backButton:active {
@@ -175,10 +180,11 @@ body {
 }
 
 #sidebar_categoryName {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%); /* TODO find a more elegant way to do this */
 	font-size: var(--headFont);
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #sidebar_iconContainer {
@@ -243,6 +249,8 @@ body {
 	height: 50px;
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
+	backdrop-filter: blur(25px);
+	opacity: 80%;
 }
 
 #sidebar_title {
@@ -251,10 +259,10 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-size: var(--headFont);
-	/* border-color: var(--highlight); */
-	/* border-right: solid 1px; */
-	/* border-bottom: solid 1px; */
-	/* margin: 0; */
+	border-color: var(--highlight);
+	/* border-left: solid 1px; */
+	border-bottom: solid 1px;
+	margin: 0;
 	text-shadow: 0 0 1px var(--alert);
 	background: var(--backgroundTransparent);
 }
@@ -288,6 +296,7 @@ body {
 	background: var(--backgroundTransparent);
 	margin: 0 !important;
 	color: var(--text);
+	/* border-left: solid 1px; */
 	/* border-color: var(--highlight); */
 	/* border-style: solid; */
 	/* border-width: 1px 0 0 1px; */
