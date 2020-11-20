@@ -623,14 +623,14 @@ body {
 	overflow: hidden;
 	color: transparent;
 	margin-left: 0;
-	transition: width 0.25s, color 0s, margin 0.25s 5s;
+	transition: width 0.25s, color 0.125s, margin 0.25s 5s;
 }
 
 .notification:hover .notification_content {
 	margin-left: 1px;
 	width: 200px;
 	color: var(--text);
-	transition: width 0.25s, color 0s 0.25s;
+	transition: width 0.25s, color 0.125s 0.125s;
 	visibility: visible;
 }
 
