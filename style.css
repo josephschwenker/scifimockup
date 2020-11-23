@@ -184,12 +184,12 @@ body {
 	right: -300px;
 	top: var(--standardHeight);
 	margin-top: 1px;
-	box-shadow: var(--boxShadow);
-	transition: right 0.25s;
+	transition: right 0.25s, box-shadow 0.25s;
 }
 
 #sidebar.open {
 	right: 0;
+	box-shadow: var(--boxShadow);
 }
 
 #sidebar > * {
@@ -375,7 +375,7 @@ body {
 	/* border-style: solid; */
 	/* border-color: var(--accent); */
 	/* border-width: 1px 0; */
-	border-bottom: solid 1px var(--background);
+	/* border-bottom: solid 1px var(--background); */
 }
 
 .sidebar_trough:last-child {
